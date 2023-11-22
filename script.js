@@ -149,7 +149,15 @@ confirmPassword.addEventListener('input', (event) => {
             showConfirmPasswordError()
           // Then we prevent the form from being sent by canceling the event
           event.preventDefault();
+        } else{
+            console.log(email.value, country.value, zipCode.value, password.value)
+            email.value = ''
+            country.value = ''
+            zipCode.value = ''
+            password.value = ''
+            confirmPassword.value = ''
         }
+
       });
 
     

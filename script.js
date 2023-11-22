@@ -27,3 +27,28 @@ function showEmailError() {
       emailError.textContent = `Email should be at least ${email.minLength} characters; you entered ${email.value.length}.`
     }
 }
+
+//! Country 
+const country = document.getElementById('country')
+let countryError = document.querySelector('#country + span.error')
+
+
+country.addEventListener('input', (event) => {
+    if(country.validity.valid){
+        countryError.textContent = ''
+    } else{
+        showCountryError()
+    }
+    })
+    
+    function showCountryError() {
+        if (country.validity.valueMissing) {
+          // If the field is empty,
+          // display the following error message.
+          countryError.textContent = "You need to enter country.";
+        } else if (country.validity.tooShort) {
+          // If the data is too short,
+          // display the following error message.
+          countryError.textContent = `Country should be at least ${country.minLength} characters; you entered ${country.value.length}.`
+        }
+    }

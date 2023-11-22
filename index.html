@@ -7,18 +7,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form action="/">
+    <form action="/" novalidate>
        <label for="email">Email</label> 
-       <input type="email" id="email">
+       <input type="email" id="email" minlength="8">
+       <span class="error"></span>
 
        <label for="country">Country</label>
-       <input type="text" id="country">
+       <input type="text" id="country" minlength="3">
 
        <label for="zip_code">Zip Code</label>
-       <input type="text" id="zip_code">
+       <input type="text" id="zip_code" minlength="7">
 
        <label for="password">Password</label>
-       <input type="password" id="passoword">
+       <input type="password" id="password" minlength="8">
 
        <label for="confirm_password">Confirm password</label>
        <input type="password" id="confirm_password">

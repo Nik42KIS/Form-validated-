@@ -1,4 +1,4 @@
-const form = document.querySelector('form')
+
 const email = document.getElementById('email')
 let emailError = document.querySelector('#email + span.error')
 
@@ -83,3 +83,74 @@ function showZipCodeError() {
       zipCodeError.textContent = `Zip Code should be at least ${minLength} characters; you entered ${zipCode.value.length}.`
     }
 }
+
+//! PASSWORD
+
+const password = document.getElementById('password')
+let passwordError = document.querySelector('#password + span.error')
+
+password.addEventListener('input', (event) => {
+    if(password.validity.valid){
+        passwordError.textContent = ''
+    } else{
+        showPasswordError()
+    }
+    })
+    
+    function showPasswordError() {
+        if (password.validity.valueMissing) {
+          // If the field is empty,
+          // display the following error message.
+          passwordError.textContent = "You need to enter a password.";
+        }  else if (password.validity.tooShort) {
+          // If the data is too short,
+          // display the following error message.
+          passwordError.textContent = `Password should be at least ${password.minLength} characters; you entered ${password.value.length}.`
+        }
+    }
+
+
+    //! CONFIRM PASSWORD
+const confirmPassword = document.getElementById('confirm_password')
+let confirmPasswordError = document.querySelector('#confirm_password + span.error')
+
+confirmPassword.addEventListener('input', (event) => {
+    if(confirmPassword.value === password.value){
+        confirmPasswordError.textContent = ''
+    } else{
+        showConfirmPasswordError()
+    }
+    })
+    
+    function showConfirmPasswordError() {
+        if (confirmPassword.validity.valueMissing) {
+          // If the field is empty,
+          // display the following error message.
+          confirmPasswordError.textContent = "You need  confirm password.";
+        }  else  {
+          // If the data is too short,
+          // display the following error message.
+          confirmPasswordError.textContent = 'Password don\'t Confirmed .'
+        }
+    }
+
+    //! FORM SUBMIT
+    const form = document.querySelector('form')
+    const confirmBtn = document.querySelector('button')
+
+    form.addEventListener("submit", (event) => {
+        // if the email field is valid, we let the form submit
+        if (!email.validity.valid || !country.validity.valid || !zipCode.validity.valid || !password.validity.valid || !confirmPassword.validity.valid ) {
+          // If it isn't, we display an appropriate error message
+            showCountryError()
+            showEmailError()
+            showZipCodeError()
+            showPasswordError()
+            showConfirmPasswordError()
+          // Then we prevent the form from being sent by canceling the event
+          event.preventDefault();
+        }
+      });
+
+    
+    

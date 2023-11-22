@@ -52,3 +52,34 @@ country.addEventListener('input', (event) => {
           countryError.textContent = `Country should be at least ${country.minLength} characters; you entered ${country.value.length}.`
         }
     }
+
+
+
+//! Zip Code 
+
+
+const zipCode = document.getElementById('zip_code')
+let zipCodeError = document.querySelector('#zip_code + span.error')
+let minLength = 5;
+
+zipCode.addEventListener('input', (event) => {
+if(zipCode.value.length >= minLength){
+    zipCodeError.textContent = ''
+} else{
+    showZipCodeError()
+}
+})
+
+function showZipCodeError() {
+    
+    if (zipCode.validity.valueMissing) {
+      // If the field is empty,
+      // display the following error message.
+      zipCodeError.textContent = "You need to enter an Zip Code.";
+    } 
+     else if (zipCode.value.length <= minLength) {
+      // If the data is too short,
+      // display the following error message.
+      zipCodeError.textContent = `Zip Code should be at least ${minLength} characters; you entered ${zipCode.value.length}.`
+    }
+}

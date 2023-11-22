@@ -15,7 +15,7 @@ form{
     display: grid;
     width: 500px;
     padding: 10px;
-    width: 350px;
+    width: 400px;
     border:none;
     border-radius: 16px;
     background-color: var(--light-color);
@@ -23,7 +23,6 @@ form{
 label{
     margin-top: 10px;
     font-size: 2rem;
-    /* color: var(--blueviolet-color); */
 }
 input{
     height: 30px;
@@ -55,4 +54,10 @@ button:hover{
     color: rgb(255, 61, 61);
     font-size: 1.1rem;
     font-weight: bold;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

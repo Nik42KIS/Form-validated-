@@ -35,6 +35,9 @@ input{
     padding: 5px;
     font-style: italic;
 }
+input:focus{
+    outline: none;
+}
 
 button{
     height: 40px;
@@ -60,4 +63,8 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.valid{
+    border: 3px solid rgb(0, 233, 0);
 }

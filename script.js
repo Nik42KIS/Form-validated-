@@ -7,6 +7,7 @@ let emailError = document.querySelector('#email + span.error')
 email.addEventListener('input', (event) => {
 if(email.validity.valid){
     emailError.textContent = ''
+    email.classList.add('valid')
 } else{
     showEmailError()
 }
@@ -36,6 +37,7 @@ let countryError = document.querySelector('#country + span.error')
 country.addEventListener('input', (event) => {
     if(country.validity.valid){
         countryError.textContent = ''
+        country.classList.add('valid')
     } else{
         showCountryError()
     }
@@ -65,6 +67,7 @@ let minLength = 5;
 zipCode.addEventListener('input', (event) => {
 if(zipCode.value.length >= minLength){
     zipCodeError.textContent = ''
+    zipCode.classList.add('valid')
 } else{
     showZipCodeError()
 }
@@ -92,6 +95,7 @@ let passwordError = document.querySelector('#password + span.error')
 password.addEventListener('input', (event) => {
     if(password.validity.valid){
         passwordError.textContent = ''
+        password.classList.add('valid')
     } else{
         showPasswordError()
     }
@@ -117,6 +121,7 @@ let confirmPasswordError = document.querySelector('#confirm_password + span.erro
 confirmPassword.addEventListener('input', (event) => {
     if(confirmPassword.value === password.value){
         confirmPasswordError.textContent = ''
+        confirmPassword.classList.add('valid')
     } else{
         showConfirmPasswordError()
     }
